@@ -21,6 +21,10 @@ h4 {
   margin: 0 3%;
 }
 
+.section-heading {
+  text-align: center;
+}
+
 /* Navbar */
 nav {
   box-shadow: rgba(17, 17, 26, 0.2) 0px 1px 0px;
@@ -30,7 +34,7 @@ nav .content {
   justify-content: space-between;
   align-items: center;
   gap: 0.3rem;
-  padding: 0.6rem 0;
+  padding: 1rem 0;
 }
 nav .content > ul {
   display: none;
@@ -64,7 +68,9 @@ nav .content > .call-btn {
   flex-direction: column;
   gap: 1rem;
   z-index: 2;
-  animation: mobile-drawer 2s linear;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: 0.3s;
 }
 .mobile-drawer ul {
   list-style-type: none;
@@ -81,27 +87,243 @@ nav .content > .call-btn {
   bottom: 0;
   right: 0;
   z-index: 1;
-  animation: overlay 2s linear;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: 0.2s;
 }
 
-@keyframes mobile-drawer {
-  from {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.mobile-drawer.active {
+  opacity: 1;
+  transform: translateX(0);
 }
-@keyframes overlay {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+.overlay.active {
+  opacity: 1;
+  transform: translateX(0);
 }
+
+/* HERO */
+.hero {
+  height: 80vh;
+  background: url("./assets/bg.webp");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+}
+.hero > div {
+  margin-top: 25%;
+  width: 70vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.hero > div > button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  width: fit-content;
+}
+
+/* About Section */
+.about-us {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.about-wapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+.about-img-wrapper {
+  height: 15rem;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.about-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+.about-features > div {
+  display: flex;
+  gap: 0.5rem;
+}
+.about-features > div img {
+  align-self: flex-start;
+}
+.about-content > button {
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  background-color: var(--primary);
+}
+
+/* Popular tours */
+.popular-tours {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.tours {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.tour-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.tour-card .img-wrapper {
+  height: 13rem;
+  position: relative;
+}
+.tour-card .wishlist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+  width: 1.9rem;
+  aspect-ratio: 1 /1;
+}
+.tour-card .wishlist i {
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+.tour-card .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tour-card .content {
+  padding: 0.5rem 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.tour-card .location {
+  display: flex;
+  align-items: center;
+  gap: 10%;
+}
+.tour-card .location > div {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+.tour-card .location i {
+  color: var(--text-color);
+}
+.tour-card .bottom {
+  display: flex;
+  gap: 10%;
+}
+.tour-card .rating {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.tour-card .rating i,
+.tour-card .rating p {
+  color: red;
+}
+.tour-card .price-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.tour-card .price {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #000;
+}
+
+/* How to book */
+.how-to-book {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.how-to-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.how-to-content > div {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+/* Top Destinations */
+.top-destinations {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.destinations {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.destination {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.destination .img-wrapper {
+  height: 14rem;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.destination .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* footer */
+.footer-wrapper {
+  background-color: #fbf9f5;
+}
+footer {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 2rem 1rem;
+}
+/* MEDIA QUERIES */
+
 /* Large Phones */
 @media screen and (min-width: 480px) {
   .container {
@@ -111,8 +333,11 @@ nav .content > .call-btn {
 
 /* Tablets */
 @media screen and (min-width: 768px) {
+  .mobile {
+    display: none;
+  }
   nav .content {
-    padding: 0.8rem 0;
+    padding: 1rem 0;
   }
   nav .content > ul {
     display: flex;
@@ -120,7 +345,10 @@ nav .content > .call-btn {
     list-style-type: none;
     gap: 1rem;
   }
-  nav .content > button {
+  nav .content ul li {
+    font-size: 1.2rem;
+  }
+  nav .content > .call-btn {
     display: flex;
   }
   .hamburger {
